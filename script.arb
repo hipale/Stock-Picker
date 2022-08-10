@@ -1,15 +1,18 @@
  def stock_picker(days)
   price_arr = []
+  last_arr = []
   days.each_with_index do |day, index|
     if index == 0 then x = index else x = index + 1 end
     until x > days.length - 1
       day_b = days[x]
      price_arr.push(day - day_b)
+     last_arr.push("#{index} #{x}")
       x += 1
     end
   end
-min = price_arr.min
-min * - 1
- end
-
- puts stock_picker([17,3,6,9,15,8,6,1,10])
+  min = price_arr.min
+  price_arr.each_with_index do |element, index|
+    if element == min then return last_arr[index] end
+  end
+end
+puts stock_picker([17,3,6,9,15,8,6,1,10])
