@@ -1,0 +1,15 @@
+ def stock_picker(days)
+  price_arr = []
+  x = 0
+  days.reduce do |day|
+    until x > days.length
+      price = day - day[x]
+      price_arr.push(price)
+      puts price
+      x += 1
+    end
+  end
+  
+ end
+
+ stock_picker([17,3,6,9,15,8,6,1,10])
